@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:c="">
+<head>
+    <title>Call records</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- use the font -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+        td{
+            text-align: center;
+        }
+        th{
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+ <body>
+    <p>Dear Anh/chị,</p>
+    <p>
+      <b>Thời gian gửi</b> :
+      <span th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm:ss')}"></span>
+    </p>
+    <br>
+    <p><strong>1,Báo cáo hoạt động tổng đài</strong></p>
+    <div>
+        <TABLE BORDER=1 CELLPADDING=1 CELLSPACING=0>
+            <thead style="width: 100%">
+            <tr>
+                <th style="width:3%">STT</th>
+                <th style="width:10%;">NGÀY</th>
+                <th style="width:10%">TỔNG SỐ CUỘC GỌI NHỠ</th>
+                <th style="width:10%">TỔNG SỐ CUỘC GỌI ĐƯỢC XỬ LÝ</th>
+                <th style="width:10%">TỔNG SỐ KHÁCH HÀNG NGHE MÁY</th>
+                <th style="width:10%">TỔNG SỐ KH HÀI LÒNG</th>
+                <th style="width:10%">TỔNG KHÁCH HÀNG CHUYỂN SALE PHỤC VỤ</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="font-weight: bold" colspan="2">Tổng</td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr th:each="customer, custStat : ${name}">
+                <td th:text="${custStat.count}"></td>
+                <td th:text="${customer[2]}"></td>
+                <td th:text="${customer[6]}"></td>
+                <td th:text="${customer[0]}"></td>
+                <td th:text="${customer[6]}"></td>
+                <td>--</td>
+                <td th:text="${customer[6]}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+
+    <p><strong>2,Báo cáo chi tiết cuộc gọi</strong></p>
+    <div>
+        <TABLE BORDER=1 CELLPADDING=1 CELLSPACING=0>
+            <thead style="width: 100%">
+            <tr>
+                <th style="width:3%">STT</th>
+                <th style="width:10%;">SỐ ĐT KHÁCH HÀNG</th>
+                <th style="width:10%">THỜI GIAN CUỘC GỌI</th>
+                <th style="width:10%">THỜI GIAN KẾT NỐI HÀNG ĐỢI</th>
+                <th style="width:10%">THỜI GIAN NHẤC MÁY</th>
+                <th style="width:10%">THỜI GIAN KẾT THÚC CUỘC GỌI</th>
+                <th style="width:10%">ĐTV</th>
+                <th style="width:10%">TRẠNG THÁI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="customer, custStat : ${name}">
+                <td th:text="${custStat.count}"></td>
+                <td th:text="${customer[5]}"></td>
+                <td th:text="${customer[10]}"></td>
+                <td >--</td>
+                <td th:text="${customer[7]}"></td>
+                <td >--</td>
+                <td th:text="${customer[9]}"></td>
+                <td>--</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <p>
+      Regards,
+      <!--<em th:text="${sign}"></em>
+      <p th:text="${location}"></p>-->
+    </p>
+  </body>
+</html>

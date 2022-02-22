@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.javabydeveloper.demo.SpringBootHelloWorldApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.468 s <<< FAILURE! - in com.javabydeveloper.demo.SpringBootHelloWorldApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: java.lang.IllegalStateException: Failed to execute ApplicationRunner
+Caused by: javax.mail.internet.AddressException: Illegal address
+
