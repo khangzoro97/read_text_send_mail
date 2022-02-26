@@ -21,7 +21,6 @@ public class LoadConfig extends Thread{
          /*   String key_sms = properties.getProperty("appkey", "");
             synchronized (Preference.key_sms) {
                 Preference.key_sms = key_sms.split(",");
-
             }
 
             String ip_access = properties.getProperty("ip_access", "");

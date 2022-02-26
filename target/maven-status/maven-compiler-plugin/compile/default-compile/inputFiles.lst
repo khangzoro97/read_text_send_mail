@@ -1,6 +1,6 @@
-D:\API_java_springboot\spring-boot\SpringBootEmailTemplate\src\main\java\com\javabydeveloper\LoadConfig.java
-D:\API_java_springboot\spring-boot\SpringBootEmailTemplate\src\main\java\com\javabydeveloper\model\Mail.java
-D:\API_java_springboot\spring-boot\SpringBootEmailTemplate\src\main\java\com\javabydeveloper\demo\SpringBootEmailTemplateApplication.java
-D:\API_java_springboot\spring-boot\SpringBootEmailTemplate\src\main\java\com\javabydeveloper\mail\service\EmailSenderService.java
-D:\API_java_springboot\spring-boot\SpringBootEmailTemplate\src\main\java\com\javabydeveloper\Preference.java
-D:\API_java_springboot\spring-boot\SpringBootEmailTemplate\src\main\java\com\javabydeveloper\config\ThymeleafTemplateConfig.java
+D:\MBF_code\read_send_mail\read_text_send_mail\src\main\java\com\javabydeveloper\demo\SpringBootEmailTemplateApplication.java
+D:\MBF_code\read_send_mail\read_text_send_mail\src\main\java\com\javabydeveloper\Preference.java
+D:\MBF_code\read_send_mail\read_text_send_mail\src\main\java\com\javabydeveloper\LoadConfig.java
+D:\MBF_code\read_send_mail\read_text_send_mail\src\main\java\com\javabydeveloper\model\Mail.java
+D:\MBF_code\read_send_mail\read_text_send_mail\src\main\java\com\javabydeveloper\mail\service\EmailSenderService.java
+D:\MBF_code\read_send_mail\read_text_send_mail\src\main\java\com\javabydeveloper\config\ThymeleafTemplateConfig.java

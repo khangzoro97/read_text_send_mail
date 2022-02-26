@@ -50,10 +50,67 @@ public class EmailSenderService {
         }
         return count;
     }
+    private int count_file_dtv1() throws IOException {
+        BufferedReader in = new BufferedReader(new FileReader("D:\\report\\6508.txt"));
+        String str;
+        int count = 0;
+        int k=1;
+        while ((str = in.readLine()) != null) {
+            if(k>3&&str.split(" ").length==12){
+                count++;
+            }
+            k++;
+
+        }
+        return count;
+    }
+    private int count_file_dtv2() throws IOException {
+        BufferedReader in = new BufferedReader(new FileReader("D:\\report\\6509.txt"));
+        String str;
+        int count = 0;
+        int k=1;
+        while ((str = in.readLine()) != null) {
+            if(k>3&&str.split(" ").length==12){
+                count++;
+            }
+            k++;
+
+        }
+        return count;
+    }
+    private int count_file_dtv3() throws IOException {
+        BufferedReader in = new BufferedReader(new FileReader("D:\\report\\6510.txt"));
+        String str;
+        int count = 0;
+        int k=1;
+        while ((str = in.readLine()) != null) {
+            if(k>3&&str.split(" ").length==12){
+                count++;
+            }
+            k++;
+
+        }
+        return count;
+    }
 
     public void sendEmail() throws MessagingException, IOException {
         int count = count_file();
         String[][] arr = new String[count][16];
+        int count1 = count_file_dtv1();
+        String[][] arr1 = new String[count1][11];
+        int count2 = count_file_dtv2();
+        String[][] arr2 = new String[count2][11];
+        int count3 = count_file_dtv3();
+        String[][] arr3 = new String[count3][11];
+        int x=0;
+        int y=0;
+        int z=0;
+        int ans_08=0;
+        int ans_09=0;
+        int ans_10=0;
+        int aban=0;
+        int ans=0;
+        int other=0;
         try {
             BufferedReader in = new BufferedReader(new FileReader("D:\\report\\report_daily.txt"));
             String str;
@@ -69,7 +126,111 @@ public class EmailSenderService {
             }
 
             for (int j = 0; j < count; j++) {
-                /*System.out.println(Arrays.toString(arr[j]));*/
+              int count_08 = Arrays.toString(arr[j]).split("6008").length;
+              int count_09 = Arrays.toString(arr[j]).split("6009").length;
+              int count_10 = Arrays.toString(arr[j]).split("6010").length;
+              int count_ans = Arrays.toString(arr[j]).split("ANS").length;
+              int count_aban = Arrays.toString(arr[j]).split("ABAN").length;
+              int count_other = Arrays.toString(arr[j]).split("OTHER").length;
+
+              if(count_08==2){
+                  x=x+1;
+              }
+                if(count_09==2){
+                    y=y+1;
+                }
+                if(count_10==2){
+                    z=z+1;
+                }
+                if(count_08==2&&count_ans==2){
+                    ans_08=ans_08+1;
+                }
+                if(count_09==2&&count_ans==2){
+                    ans_09=ans_09+1;
+                }
+                if(count_10==2&&count_ans==2){
+                    ans_10=ans_10+1;
+                }
+                if(count_ans==2){
+                    ans=ans+1;
+                }
+                if(count_aban==2){
+                    aban=aban+1;
+                }
+                if(count_other==2){
+                    other=other+1;
+                }
+            }
+
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("D:\\report\\6508.txt"));
+            String str;
+
+            int i = 1;
+
+            while ((str = in.readLine()) != null) {
+                if (i > 3 && str.split(" ").length == 12) {
+                    arr1[i - 4] = str.split(" ");
+                }
+                i++;
+
+            }
+
+            for (int j = 0; j < count1; j++) {
+                /*System.out.println(Arrays.toString(arr1[j]));*/
+            }
+
+
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("D:\\report\\6509.txt"));
+            String str;
+
+            int i = 1;
+
+            while ((str = in.readLine()) != null) {
+                if (i > 3 && str.split(" ").length == 12) {
+                    arr2[i - 4] = str.split(" ");
+                }
+                i++;
+
+            }
+
+            for (int j = 0; j < count2; j++) {
+                /*System.out.println(Arrays.toString(arr2[j]));*/
+            }
+
+
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("D:\\report\\6510.txt"));
+            String str;
+
+            int i = 1;
+
+            while ((str = in.readLine()) != null) {
+                if (i > 3 && str.split(" ").length == 12) {
+                    arr3[i - 4] = str.split(" ");
+                }
+                i++;
+
+            }
+
+            for (int j = 0; j < count3; j++) {
+                /*System.out.println(Arrays.toString(arr3[j]));*/
             }
 
 
@@ -94,6 +255,23 @@ public class EmailSenderService {
 
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("name",arr);
+        model.put("time",arr[0][2]);
+        model.put("x",x);
+        model.put("y",y);
+        model.put("z",z);
+        model.put("count",count);
+        model.put("ans",ans);
+        model.put("aban",aban);
+        model.put("other",other);
+        model.put("ans_08",ans_08);
+        model.put("ans_09",ans_09);
+        model.put("ans_10",ans_10);
+        model.put("sta_1",arr1[0][1]);
+        model.put("avai_1",arr1[0][7]);
+        model.put("sta_2",arr2[0][1]);
+        model.put("avai_2",arr2[0][7]);
+        model.put("sta_3",arr3[0][1]);
+        model.put("avai_3",arr3[0][7]);
 
 
         Context context = new Context();

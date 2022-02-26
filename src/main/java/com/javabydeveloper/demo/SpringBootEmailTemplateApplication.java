@@ -40,9 +40,8 @@ public class SpringBootEmailTemplateApplication implements ApplicationRunner{
         model.put("location", "United States");
         model.put("sign", "Java Developer");
         mail.setProps(model);*/
-
+		emailService.start();
         emailService.sendEmail();
-        emailService.start();
 
 	}
 }

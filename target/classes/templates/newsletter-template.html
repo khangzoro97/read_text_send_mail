@@ -25,6 +25,7 @@
     </style>
 </head>
  <body>
+ <p>Đây là email tự động gửi báo cáo hoạt động của tổng đài CSKH 19003066.</p>
     <p>Dear Anh/chị,</p>
     <p>
       <b>Thời gian gửi</b> :
@@ -47,12 +48,12 @@
             </thead>
             <tbody>
             <tr>
-                <td style="font-weight: bold" colspan="2">Tổng</td>
-                <td ></td>
-                <td ></td>
-                <td ></td>
-                <td></td>
-                <td></td>
+                <td style="color: red" colspan="2">Tổng</td>
+                <td style="color: red" th:text="${aban}"></td>
+                <td style="color: red" th:text="${count}"></td>
+                <td style="color: red" th:text="${ans}"></td>
+                <td style="color: red">--</td>
+                <td style="color: red" th:text="${other}"></td>
             </tr>
             <tr th:each="customer, custStat : ${name}">
                 <td th:text="${custStat.count}"></td>
@@ -93,6 +94,69 @@
                 <td >--</td>
                 <td th:text="${customer[9]}"></td>
                 <td>--</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+
+    <p><strong>3,Báo cáo chất lượng ĐTV</strong></p>
+    <div>
+        <TABLE BORDER=1 CELLPADDING=1 CELLSPACING=0>
+            <thead style="width: 100%">
+            <tr>
+                <th style="width:3%">STT</th>
+                <th style="width:10%;">NGÀY</th>
+                <th style="width:10%">ĐTV</th>
+                <th style="width:10%">TỔNG SỐ CUỘC GỌI PHỤC VỤ</th>
+                <th style="width:10%">TỔNG SỐ KH CHUYỂN SALE PHỤC VỤ</th>
+                <th style="width:10%">TỈ LỆ CHUYỂN SALE</th>
+                <th style="width:10%">TỈ LỆ MISSCALL TRONG CA</th>
+                <th style="width:10%">THỜI GIAN  LOGIN </th>
+                <th style="width:10%">THỜI GIAN LOGOUT</th>
+                <th style="width:10%">THỜI GIAN AVAILABLE</th>
+                <th style="width:10%">THỜI GIAN PHỤC VỤ TRUNG BÌNH/CUỘC GỌI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td >1</td>
+                <td rowspan="3" th:text="${time}"></td>
+                <td >6508</td>
+                <td th:text="${x}"></td>
+                <td th:text="${ans_08}"></td>
+                <td >--</td>
+                <td >--</td>
+                <td th:text="${sta_1}"></td>
+                <td >--</td>
+                <td th:text="${avai_1}"></td>
+                <td >--</td>
+            </tr>
+            <tr>
+                <td >2</td>
+
+                <td >6509</td>
+                <td th:text="${y}"></td>
+                <td th:text="${ans_09}"></td>
+                <td >--</td>
+                <td >--</td>
+                <td th:text="${sta_2}"></td>
+                <td >--</td>
+                <td th:text="${avai_2}"></td>
+                <td >--</td>
+            </tr>
+            <tr>
+                <td >3</td>
+
+                <td >6510</td>
+                <td th:text="${z}"></td>
+                <td th:text="${ans_10}"></td>
+                <td >--</td>
+                <td >--</td>
+                <td th:text="${sta_3}"></td>
+                <td >--</td>
+                <td th:text="${avai_3}"></td>
+                <td >--</td>
             </tr>
             </tbody>
         </table>
